@@ -24,7 +24,7 @@ public class DAO {
 
 	public DAO() throws Exception {
 		Context context = new InitialContext();
-		String jndiName = "java:comp/env/jdbc/studentdb";
+		String jndiName = "java:comp/env/jdbc/school_db";
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 
@@ -40,10 +40,12 @@ public class DAO {
 
 		while (rs.next()) {
 			String sid = rs.getString("sid");
-			String cID = rs.getString("cID");
 			String name = rs.getString("name");
-			String address = rs.getString("address");
-			student p = new student(sid, cID, name, address);
+			String address = rs.getString("Address");
+			String dob = rs.getString("Date_of_Birth");
+			String yearOrClass = rs.getString("year_or_class");
+			String special_Needs = rs.getString("Special_Needs");
+			student p = new student(sid, dob, name, address, yearOrClass, special_Needs );
 
 			students.add(p);
 		}
@@ -55,19 +57,23 @@ public class DAO {
 	public void insertStudent(student s) throws SQLException {
 
 		String sid = s.getSid();
-		String cID = s.getcID();
 		String name = s.getName();
 		String address = s.getAddress();
+		String date_of_Birth = s.getDate_of_Birth();
+		String year_or_class = s.getYear_or_class();
+		String Special_Needs = s.getSpecial_Needs();
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement myStat = conn
 				.prepareStatement("INSERT INTO student (sid, cID, name, address) VALUES (?, ?, ?, ?)");
 
 		myStat.setString(1, sid);
-		myStat.setString(2, cID);
-		myStat.setString(3, name);
-		myStat.setString(4, address);
-
+		myStat.setString(2, name);
+		myStat.setString(3, address);
+		myStat.setString(4, date_of_Birth);
+		myStat.setString(5, year_or_class);
+		myStat.setString(6, Special_Needs);
+		
 		myStat.executeUpdate();
 
 		myStat.close();
