@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{studentController.loadStudents()}" />
+</f:metadata>
+
+<h:head>
+	<title>Students</title>
+</h:head>
+
+<h:body>
+
+	<h:outputStylesheet library="css" name="tables.css" />
+	<h:form>
+		<h:dataTable value="#{studentController.ps}" var="s"
+			styleClass="table" headerClass="table-header"
+			rowClasses="table-odd-row, table-even-row"> <!-- For the css -->
+
+			<h:column>
+				<f:facet name="header">sid</f:facet>
+				<h:outputText value="#{s.sid}" />  
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">cID</f:facet>
+				<h:outputText value="#{s.cID}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">name</f:facet>
+				<h:outputText value="#{s.name}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">address</f:facet>
+				<h:outputText value="#{s.address}" />  <!-- Output buttons for the attributes --> 
+			</h:column>
+				<h:column>
+					<h:commandButton value="delete" action="#{studentController.deleteStudent(s)}" /> <!-- Calls calls delete function -->
+				</h:column>
+		</h:dataTable>
+		<h:commandButton value="Add Student" action="AddStudent.xhtml" />
+
+		<h:commandButton value="Homepage" action="index.xhtml" /><!-- Navagation button -->
+	</h:form>
+</h:body>
+</html>
