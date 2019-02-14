@@ -18,16 +18,12 @@
 	<h:form>
 		<h:dataTable value="#{studentController.ps}" var="s"
 			styleClass="table" headerClass="table-header"
-			rowClasses="table-odd-row, table-even-row"> <!-- For the css -->
+			rowClasses="table-odd-row, table-even-row">
+			<!-- For the css -->
 
 			<h:column>
 				<f:facet name="header">sid</f:facet>
-				<h:outputText value="#{s.sid}" />  
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">cID</f:facet>
-				<h:outputText value="#{s.cID}" />
+				<h:outputText value="#{s.sid}" />
 			</h:column>
 
 			<h:column>
@@ -36,16 +32,37 @@
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">address</f:facet>
-				<h:outputText value="#{s.address}" />  <!-- Output buttons for the attributes --> 
+				<f:facet name="header">Address</f:facet>
+				<h:outputText value="#{s.address}" />
 			</h:column>
-				<h:column>
-					<h:commandButton value="delete" action="#{studentController.deleteStudent(s)}" /> <!-- Calls calls delete function -->
-				</h:column>
+
+			<h:column>
+				<f:facet name="header">Date of birth</f:facet>
+				<h:outputText value="#{s.date_of_Birth}" />
+				<!-- Output buttons for the attributes -->
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Year</f:facet>
+				<h:outputText value="#{s.year_or_class}" />
+				<!-- Output buttons for the attributes -->
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Special Needs</f:facet>
+				<h:outputText value="#{s.special_Needs}" />
+				<!-- Output buttons for the attributes -->
+			</h:column>
+			<h:column>
+				<h:commandButton value="delete"
+					action="#{studentController.deleteStudent(s)}" />
+				<!-- Calls calls delete function -->
+			</h:column>
 		</h:dataTable>
 		<h:commandButton value="Add Student" action="AddStudent.xhtml" />
 
-		<h:commandButton value="Homepage" action="index.xhtml" /><!-- Navagation button -->
+		<h:commandButton value="Homepage" action="index.xhtml" />
+		<!-- Navagation button -->
 	</h:form>
 </h:body>
 </html>
