@@ -23,7 +23,7 @@ public class DAOc {
 
 	public DAOc() throws Exception {
 		Context context = new InitialContext();
-		String jndiName = "java:comp/env/jdbc/studentdb";
+		String jndiName = "java:comp/env/jdbc/school_db";
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 
