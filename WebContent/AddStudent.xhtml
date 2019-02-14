@@ -12,21 +12,34 @@
 	<title>students</title>
 </h:head>
 <h:body>
-	<h:outputStylesheet library="css" name="tables.css" /> <!-- For the scc -->
+	<h:outputStylesheet library="css" name="tables.css" />
+	<!-- For the scc -->
 	<h:form>
 		<h:inputText value="#{student.sid}" />
 		<br></br>
-		<h:inputText value="#{student.cID}" />
-		<br></br>
 		<h:inputText value="#{student.name}" />
 		<br></br>
-		<h:inputText value="#{student.address}" /> <!-- input text for the attributes -->
+		<h:inputText value="#{student.address}" />
 		<br></br>
-		<h:commandButton value="Add" action="#{studentController.addStudent(student)}" /><!-- calls the addd course method -->
+		<h:inputText value="#{student.date_of_Birth}" />
+		<!-- input text for the attributes -->
+		<br></br>
+		<br></br>
+		<h:inputText value="#{student.year_or_class}" />
+		<!-- input text for the attributes -->
+		<br></br>
+		<br></br>
+		<h:inputText value="#{student.special_Needs}" />
+		<!-- input text for the attributes -->
+		<br></br>
+		<h:commandButton value="Add"
+			action="#{studentController.addStudent(student)}" />
+		<!-- calls the addd course method -->
 		<br></br>
 		<h:commandButton value="students" action="student.xhtml" />
 
-		<h:commandButton value="Homepage" action="index.xhtml" /><!-- Navagation button -->
+		<h:commandButton value="Homepage" action="index.xhtml" />
+		<!-- Navagation button -->
 	</h:form>
 </h:body>
 </html>
