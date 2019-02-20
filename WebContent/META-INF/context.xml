@@ -2,7 +2,7 @@
 <Resource name="jdbc/school_db"   			
  auth="Container" type="javax.sql.DataSource" 
  maxActive="20" maxIdle="5" maxWait="10000"         	
- username="root" password=""                
+ username="admin" password="admin5"                
  driverClassName="com.mysql.jdbc.Driver"                 
- url="jdbc:mysql://localhost:3306/school_db"/>
+ url="jdbc:mysql://34.244.197.172:3306/school_db"/>
 </Context>
