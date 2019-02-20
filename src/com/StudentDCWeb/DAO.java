@@ -45,7 +45,7 @@ public class DAO {
 			String dob = rs.getString("Date_of_Birth");
 			String yearOrClass = rs.getString("year_or_class");
 			String special_Needs = rs.getString("Special_Needs");
-			student p = new student(sid, dob, name, address, yearOrClass, special_Needs );
+			student p = new student(sid, dob, name, address, yearOrClass, special_Needs);
 
 			students.add(p);
 		}
@@ -64,8 +64,8 @@ public class DAO {
 		String Special_Needs = s.getSpecial_Needs();
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement myStat = conn
-				.prepareStatement("INSERT INTO student (sid, cID, name, address) VALUES (?, ?, ?, ?)");
+		PreparedStatement myStat = conn.prepareStatement(
+				"INSERT INTO student (sid, name, address, date_of_Birth,year_or_class,Special_Needs) VALUES (?, ?, ?, ?,?,?)");
 
 		myStat.setString(1, sid);
 		myStat.setString(2, name);
@@ -73,7 +73,7 @@ public class DAO {
 		myStat.setString(4, date_of_Birth);
 		myStat.setString(5, year_or_class);
 		myStat.setString(6, Special_Needs);
-		
+
 		myStat.executeUpdate();
 
 		myStat.close();
