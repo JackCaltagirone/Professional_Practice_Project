@@ -43,11 +43,10 @@ public class StudentController {
 
 		try {
 			dao.insertStudent(s); // calls the insert course with "s"
-
 		}
 		// try
 		catch (Exception e) {
-			FacesMessage message = new FacesMessage("Error: Cannot connect to Database");
+			FacesMessage message = new FacesMessage("Error: Did not make it to insert Student");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} // catch
 
