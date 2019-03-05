@@ -54,9 +54,12 @@
 				<!-- Output buttons for the attributes -->
 			</h:column>
 			<h:column>
-				<h:commandButton value="delete"
+				<h:commandButton value="Delete"
 					action="#{studentController.deleteStudent(s)}" />
 				<!-- Calls calls delete function -->
+			</h:column>
+						<h:column>
+				<h:commandButton value="Grade" action="Grades.xhtml"/>
 			</h:column>
 		</h:dataTable>
 		<h:commandButton value="Add Student" action="AddStudent.xhtml" />
