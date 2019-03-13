@@ -1,4 +1,5 @@
 package com.Grades;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -7,13 +8,13 @@ import javax.faces.bean.SessionScoped;
 public class Grades {
 	private String subject;
 	private int grade;
-	
+
 	public Grades(String subject, int grade) {
 		super();
 		this.subject = subject;
 		this.grade = grade;
 	}
-	
+
 	public String getSubject() {
 		return subject;
 	}
@@ -30,10 +31,8 @@ public class Grades {
 		this.grade = grade;
 	}
 
-	public Grades(){
-	
+	public Grades() {
+
 	}
-	
-	
-	
+
 }
