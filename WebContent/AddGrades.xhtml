@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-	
-	<f:metadata>
+
+<f:metadata>
 	<f:event type="preRenderView"
 		listener="#{gradesController.loadGrades()}" />
 </f:metadata>
@@ -12,32 +12,33 @@
 </h:head>
 
 <h:body>
- <h:form >
-	 	Maths: <Tab>  <h:inputText value="#{Grades.grade}" /> </Tab>
-	 	 <Tab><h:commandButton value="Edit Grade" action="#{gradeController.addMaths(grade)}"/>
-	 	 </Tab>
-	 	
+	<h:outputStylesheet library="css" name="tables.css" />
+	<!-- For the css -->
+	<h:form>
+	 	Maths: <Tab> <h:inputText value="#{Grades.grade}" /> </Tab>
+		<Tab> <h:commandButton value="Edit Grade"
+			action="#{GradesController.addMaths(grade)}" /> </Tab>
 		<br></br>
-		English: <Tab><h:inputText value="#{Grades.grade}"/></Tab>
-			 	 <Tab><h:commandButton value="Edit Grade" action="#{gradeController.addEnglish(grade)}"/>
-	 	 </Tab>
+		English: <Tab> <h:inputText value="#{Grades.grade}" /></Tab>
+		<Tab> <h:commandButton value="Edit Grade"
+			action="#{GradesController.addEnglish(grade)}" /> </Tab>
 		<br></br>
-		Irish: <Tab><h:inputText value="#{Grades.grade}"/></Tab>
-			 	 <Tab><h:commandButton value="Edit Grade" action="#{gradeController.addIrish(grade)}"/>
-	 	 </Tab>
+		Irish: <Tab> <h:inputText value="#{Grades.grade}" /></Tab>
+		<Tab> <h:commandButton value="Edit Grade"
+			action="#{GradesController.addIrish(grade)}" /> </Tab>
 		<br></br>
-		Business: <Tab><h:inputText value="#{Grades.grade}"/></Tab>
-			 	 <Tab><h:commandButton value="Edit Grade" action="#{gradeController.addBusiness(grade)}"/>
-	 	 </Tab>
+		Business: <Tab> <h:inputText value="#{Grades.grade}" /></Tab>
+		<Tab> <h:commandButton value="Edit Grade"
+			action="#{GradesController.addBusiness(grade)}" /> </Tab>
 		<br></br>
-		Science: <Tab><h:inputText value="#{Grades.grade}"/></Tab>
-			 	 <Tab><h:commandButton value="Edit Grade" action="#{gradeController.addScience(grade)}"/>
-	 	 </Tab>
+		Science: <Tab> <h:inputText value="#{Grades.grade}" /></Tab>
+		<Tab> <h:commandButton value="Edit Grade"
+			action="#{GradesController.addScience(grade)}" /> </Tab>
 		<br></br>
-		PE: <Tab><h:inputText value="#{Grades.grade}"/></Tab>
-			 	 <Tab><h:commandButton value="Edit Grade" action="#{gradeController.addPE(grade)}"/>
-	 	 </Tab>
+		PE: <Tab> <h:inputText value="#{Grades.grade}" /></Tab>
+		<Tab> <h:commandButton value="Edit Grade"
+			action="#{GradesController.addPE(grade)}" /> </Tab>
 		<br></br>
-	 </h:form>
+	</h:form>
 </h:body>
 </html>

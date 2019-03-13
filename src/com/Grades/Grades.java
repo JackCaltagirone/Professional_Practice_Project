@@ -31,8 +31,4 @@ public class Grades {
 		this.grade = grade;
 	}
 
-	public Grades() {
-
-	}
-
 }
