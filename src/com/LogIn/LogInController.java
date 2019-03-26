@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import com.StudentDCWeb.student;
+import com.Student.student;
 
 @ManagedBean
 @SessionScoped
