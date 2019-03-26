@@ -1,5 +1,5 @@
 
-package com.Student;
+package com.Grades;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 
-public class student {
+public class Grades {
 
 	private String sid;
 	private String name;
@@ -17,11 +17,11 @@ public class student {
 	private String Special_Needs;
 	// attributes for Grades
 
-	public student() {
+	public Grades() {
 
 	}// empty constructer
 
-	public student(String sid, String dob, String name, String address, String yearOrClass, String SN) {
+	public Grades(String sid, String dob, String name, String address, String yearOrClass, String SN) {
 		super();
 		this.sid = sid;
 		this.Date_of_Birth = dob;

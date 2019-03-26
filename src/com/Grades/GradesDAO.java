@@ -1,4 +1,4 @@
-package com.Student;
+package com.Grades;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,11 +18,11 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 
 @ManagedBean
 @SessionScoped
-public class DAO {
+public class GradesDAO {
 
 	private DataSource mysqlDS;
 
-	public DAO() throws Exception {
+	public GradesDAO() throws Exception {
 		Context context = new InitialContext();
 		String jndiName = "java:comp/env/jdbc/school_db";
 		mysqlDS = (DataSource) context.lookup(jndiName);

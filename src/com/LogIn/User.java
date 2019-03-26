@@ -11,7 +11,7 @@ public class User {
 
 	private String userName;
 	private String password;
-	// attributes for student
+	// attributes for Grades
 
 	public User() {
 
