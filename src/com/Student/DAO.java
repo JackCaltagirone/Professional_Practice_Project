@@ -33,7 +33,7 @@ public class DAO {
 		Connection conn = mysqlDS.getConnection();
 		Statement myStmt = conn.createStatement();
 
-		String query = "select * from Grades";
+		String query = "select * from Student";
 		ResultSet rs = myStmt.executeQuery(query);
 
 		ArrayList<student> students = new ArrayList<student>();
