@@ -9,75 +9,73 @@ import javax.faces.bean.SessionScoped;
 
 public class Grades {
 
-	private String sid;
-	private String name;
-	private String Address;
-	private String Date_of_Birth;
-	private String year_or_class;
-	private String Special_Needs;
+	private int math;
+	private int english;
+	private int irish;
+	private int business;
+	private int science;
+	private int pe;
 	// attributes for Grades
 
-	public Grades() {
-
-	}// empty constructer
-
-	public Grades(String sid, String dob, String name, String address, String yearOrClass, String SN) {
+	public Grades(int math, int english, int irish, int business, int science, int pe) {
 		super();
-		this.sid = sid;
-		this.Date_of_Birth = dob;
-		this.name = name;
-		this.Address = address;
-		this.year_or_class = yearOrClass;
-		this.Special_Needs = SN;
-		System.out.println("ProdID: " + sid + "Desc: " + dob + "Name: " + name + "Address: " + address + "Year: " + yearOrClass + "Special Needs: " + SN);
+		this.math = math;
+		this.english = english;
+		this.irish = irish;
+		this.business = business;
+		this.pe = pe;
+		System.out.println("math: " + math + "english: " + english + "irish: " + irish + "business: " + business
+				+ "science: " + science + "Special pe: " + pe);
 	} // object contructer with inputs
+
 	
-
-	public String getDate_of_Birth() {
-		return Date_of_Birth;
+	
+	public int getMath() {
+		return math;
 	}
 
-	public void setDate_of_Birth(String date_of_Birth) {
-		Date_of_Birth = date_of_Birth;
+	public void setMath(int math) {
+		this.math = math;
 	}
 
-	public String getYear_or_class() {
-		return year_or_class;
+	public int getEnglish() {
+		return english;
 	}
 
-	public void setYear_or_class(String year_or_class) {
-		this.year_or_class = year_or_class;
+	public void setEnglish(int english) {
+		this.english = english;
 	}
 
-	public String getSpecial_Needs() {
-		return Special_Needs;
+	public int getIrish() {
+		return irish;
 	}
 
-	public void setSpecial_Needs(String special_Needs) {
-		Special_Needs = special_Needs;
+	public void setIrish(int irish) {
+		this.irish = irish;
 	}
 
-	public String getSid() {
-		return sid;
+	public int getBusiness() {
+		return business;
 	}
 
-	public void setSid(String sid) {
-		this.sid = sid;
+	public void setBusiness(int business) {
+		this.business = business;
 	}
 
-	public String getName() {
-		return name;
+	public int getScience() {
+		return science;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setScience(int science) {
+		this.science = science;
 	}
 
-	public String getAddress() {
-		return Address;
+	public int getPe() {
+		return pe;
 	}
 
-	public void setAddress(String address) {
-		this.Address = address;
-	} // setters and getters
+	public void setPe(int pe) {
+		this.pe = pe;
+	}
+
 }

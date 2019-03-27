@@ -16,51 +16,42 @@ import com.Student.student;
 public class GradesController {
 
 	private GradesDAO gradesDAO;
-	ArrayList<student> ps; // creates array list
+	ArrayList<Grades> ps; // creates array list
 
 	public GradesController() throws Exception {
 		super();
 		gradesDAO = new GradesDAO(); // creates the object of the gradesDAO
 	}
 
-	public void loadStudents() throws SQLException {
+	public void loadGrades() throws SQLException {
 
-		System.out.println("In LoadStudents()");
+		System.out.println("In loadGrades()");
 
-		ps = gradesDAO.getAllStudents();
+		ps = gradesDAO.getAllGrades();
 
 	}
 
-	public ArrayList<student> getPs() {
+	public ArrayList<Grades> getPs() {
 		return ps;
 	}
 
-	public void setPs(ArrayList<student> ps) {
+	public void setPs(ArrayList<Grades> ps) {
 		this.ps = ps;
 	}
 
-	public String addStudent(student s) throws SQLException {
+	public String addGrade(Grades g) throws SQLException {
 
 		try {
-			gradesDAO.insertStudent(s); // calls the insert course with "s"
+			gradesDAO.insertGrade(g); // calls the insert course with "s"
 		}
 		// try
 		catch (Exception e) {
-			FacesMessage message = new FacesMessage("Error: Did not make it to insert Student");
+			FacesMessage message = new FacesMessage("Error: Did not make it to insert Grade");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} // catch
 
 		return "index.xhtml";
 
 	}// method for calling the methods that adds to database
-
-	public String deleteStudent(student s) {
-		try {
-			gradesDAO.deleteStudent(s); // calls delete course with the parameter s
-		} catch (Exception e) {
-			e.printStackTrace();
-		} // method for calling the methods that adds to database
-		return "course";
-	}
 
 }
