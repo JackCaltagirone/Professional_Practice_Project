@@ -17,9 +17,6 @@ public class Grades {
 	private int pe;
 	// attributes for Grades
 
-	public Grades() {
-
-	}// empty constructer
 
 	public Grades(int math, int english, int irish, int business, int science, int pe) {
 		super();

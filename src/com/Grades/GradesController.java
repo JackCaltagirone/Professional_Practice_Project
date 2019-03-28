@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
 public class GradesController {
 
 	private GradesDAO gradesDAO;
-	ArrayList<Grades> ps; // creates array list
+	ArrayList<Grades> gs; // creates array list
 
 	public GradesController() throws Exception {
 		super();
@@ -25,17 +25,17 @@ public class GradesController {
 
 		System.out.println("In Loadgrades()");
 
-		ps = gradesDAO.getAllGrades();
+		gs = gradesDAO.getAllGrades();
 
+	}//method that calls the dao to get list out the grades
+
+	public ArrayList<Grades> getgs() {
+		return gs;
 	}
 
-	public ArrayList<Grades> getPs() {
-		return ps;
-	}
-
-	public void setPs(ArrayList<Grades> ps) {
-		this.ps = ps;
-	}
+	public void setgs(ArrayList<Grades> gs) {
+		this.gs = gs;
+	}//array setter and and getter
 
 	public String addGrade(Grades s) throws SQLException {
 
