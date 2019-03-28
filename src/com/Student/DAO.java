@@ -33,7 +33,7 @@ public class DAO {
 		Connection conn = mysqlDS.getConnection();
 		Statement myStmt = conn.createStatement();
 
-		String query = "select * from Grades";
+		String query = "select * from Student";
 		ResultSet rs = myStmt.executeQuery(query);
 
 		ArrayList<student> students = new ArrayList<student>();
@@ -45,9 +45,9 @@ public class DAO {
 			String dob = rs.getString("Date_of_Birth");
 			String yearOrClass = rs.getString("year_or_class");
 			String special_Needs = rs.getString("Special_Needs");
-			student p = new student(sid, dob, name, address, yearOrClass, special_Needs);
+			student s = new student(sid, dob, name, address, yearOrClass, special_Needs);
 
-			students.add(p);
+			students.add(s);
 		}
 
 		return students;
@@ -88,7 +88,7 @@ public class DAO {
 
 			conn = mysqlDS.getConnection();
 
-			myStat = conn.prepareStatement("delete from Grades where sid = ?");
+			myStat = conn.prepareStatement("delete from Student where sid = ?");
 			myStat.setString(1, s.getSid());
 
 			myStat.executeUpdate();
