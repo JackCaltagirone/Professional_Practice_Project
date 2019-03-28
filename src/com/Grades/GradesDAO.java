@@ -13,9 +13,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.Student.student;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-
 @ManagedBean
 @SessionScoped
 public class GradesDAO {
@@ -28,15 +25,15 @@ public class GradesDAO {
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 
-	public ArrayList<student> getAllStudents() throws SQLException {
-		System.out.println("In GradesDAO Load Students");
+	public ArrayList<Grades> getAllGrades() throws SQLException {
+		System.out.println("In GradesDAO Load grades");
 		Connection conn = mysqlDS.getConnection();
 		Statement myStmt = conn.createStatement();
 
 		String query = "select * from Grades";
 		ResultSet rs = myStmt.executeQuery(query);
 
-		ArrayList<student> students = new ArrayList<student>();
+		ArrayList<Grades> Grade = new ArrayList<Grades>();
 
 		while (rs.next()) {
 			String sid = rs.getString("sid");
@@ -45,16 +42,16 @@ public class GradesDAO {
 			String dob = rs.getString("Date_of_Birth");
 			String yearOrClass = rs.getString("year_or_class");
 			String special_Needs = rs.getString("Special_Needs");
-			student p = new student(sid, dob, name, address, yearOrClass, special_Needs);
+			Grades g = new Grades(sid, dob, name, address, yearOrClass, special_Needs);
 
-			students.add(p);
+			Grade.add(g);
 		}
 
-		return students;
+		return Grade;
 
 	}
 
-	public void insertStudent(student s) throws SQLException {
+	public void insertGrade(Grades s) throws SQLException {
 
 		String sid = s.getSid();
 		String name = s.getName();
@@ -80,25 +77,4 @@ public class GradesDAO {
 		conn.close();
 	}
 
-	public void deleteStudent(student s) throws SQLException {
-		try {
-			Connection conn;
-			PreparedStatement myStat;
-			ResultSet rs;
-
-			conn = mysqlDS.getConnection();
-
-			myStat = conn.prepareStatement("delete from Grades where sid = ?");
-			myStat.setString(1, s.getSid());
-
-			myStat.executeUpdate();
-
-			myStat.close();
-			conn.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	}
 }
