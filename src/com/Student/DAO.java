@@ -33,24 +33,23 @@ public class DAO {
 		Connection conn = mysqlDS.getConnection();
 		Statement myStmt = conn.createStatement();
 
-		String query = "select * from Student";
+		String query = "select * from Grades";
 		ResultSet rs = myStmt.executeQuery(query);
 
 		ArrayList<student> students = new ArrayList<student>();
-		
-
 
 		while (rs.next()) {
-			String sid = rs.getString("sid");  //this line crashing
+			String sid = rs.getString("sid");
 			String name = rs.getString("name");
 			String address = rs.getString("Address");
 			String dob = rs.getString("Date_of_Birth");
 			String yearOrClass = rs.getString("year_or_class");
 			String special_Needs = rs.getString("Special_Needs");
-			student s = new student(sid, dob, name, address, yearOrClass, special_Needs);
+			student p = new student(sid, dob, name, address, yearOrClass, special_Needs);
 
-			students.add(s);
+			students.add(p);
 		}
+
 		return students;
 
 	}
