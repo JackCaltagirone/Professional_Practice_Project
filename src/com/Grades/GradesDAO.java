@@ -28,15 +28,14 @@ public class GradesDAO {
 	public ArrayList<Grades> getAllGrades() throws SQLException {
 		System.out.println("In GradesDAO Load grades");
 		Connection conn = mysqlDS.getConnection();
-		Statement myStmt = conn.createStatement();
+		Statement myStmt = conn.createStatement();  //the creates the statement to be sent the sql server
 
-		String query = "select * from grades";
-		ResultSet rs = myStmt.executeQuery(query);
+		String query = "select * from grades"; //first query to open up the grades table
+		ResultSet rs = myStmt.executeQuery(query); //rs is the result set. and the query is sent threw it
 
-		ArrayList<Grades> Grade = new ArrayList<Grades>();
+		ArrayList<Grades> Grade = new ArrayList<Grades>(); //creates new grade array Grade
 
-		while (rs.next()) {
-			
+		while (rs.next()) { //there are results
 			
 			System.out.println("before");
 			int math = rs.getInt("math");  //breaking line. "Column math not found"
@@ -48,9 +47,12 @@ public class GradesDAO {
 			int business = rs.getInt("business");
 			int science = rs.getInt("science");
 			int pe = rs.getInt("pe");
+
+			//gets the subjects from the grades constructer 
+			
 			Grades g = new Grades(math, english, irish, business, science, pe);
 
-			Grade.add(g);
+			Grade.add(g); //adds to the grade array list
 		}
 
 		return Grade;
