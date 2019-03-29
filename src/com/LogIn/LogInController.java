@@ -30,4 +30,18 @@ public class LogInController {
 	public void setPs(ArrayList<User> userList) {
 		this.userList = userList;
 	}
+	public String validateUser(User u) throws SQLException {
+
+		try {
+			LogInDAO.validate(u); // calls the insert course with "s"
+		}
+		// try
+		catch (Exception e) {
+			FacesMessage message = new FacesMessage("Error: Did not make it to insert Student");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		} // catch
+
+		return "Student.xhtml";
+
+	}// 
 }
