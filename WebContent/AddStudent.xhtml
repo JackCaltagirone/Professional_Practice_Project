@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://xmlns.jcp.org/jsf/html"
-   xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:metadata>
-      <f:event type="preRenderView"
-         listener="#{studentController.loadStudents}" />
-   </f:metadata>
-   <h:head>
-      <title>students</title>
-   </h:head>
-   <h:body>
-      <h:outputStylesheet library="css" name="tables.css" />
-      <!-- For the scc -->
-      <h:form>
-         ID:   
-         <h:inputText value="#{student.sid}" />
-         <br></br>
-         Name: 
-         <Tab>
-            <h:inputText value="#{student.name}"/>
-         </Tab>
-         <br></br>
-         Address
-         <h:inputText value="#{student.address}" />
-         <br></br>
-         DoB - XXXX-XX-XX:
-         <h:inputText value="#{student.date_of_Birth}" />
-         <!-- input text for the attributes -->
-         <br></br>
-         Class:
-         <h:inputText value="#{student.year_or_class}" />
-         <!-- input text for the attributes -->
-         <br></br>
-         Special Needs: 
-         <h:inputText value="#{student.special_Needs}" />
-         <!-- input text for the attributes -->
-         <br></br>
-         <h:commandButton value="Add"
-            action="#{studentController.addStudent(student)}" />
-         <!-- calls the add course method -->
-         <br></br>
-         <h:commandButton value="students" action="Student.xhtml" />
-         <h:commandButton value="Homepage" action="index.xhtml" />
-         <!-- Navigation button -->
-      </h:form>
-   </h:body>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{studentController.loadStudents}" />
+</f:metadata>
+
+<h:head>
+	<title>students</title>
+</h:head>
+<h:body>
+	<h:outputStylesheet library="css" name="tables.css" />
+	<!-- For the scc -->
+	<h:form>
+		ID:   <h:inputText value="#{student.sid}" />
+		<br></br>
+		Name: <Tab><h:inputText value="#{student.name}"/></Tab>
+		<br></br>
+		Address<h:inputText value="#{student.address}" />
+		<br></br>
+		DoB - XXXX-XX-XX:<h:inputText value="#{student.date_of_Birth}" />
+		<!-- input text for the attributes -->
+		<br></br>
+		Class:<h:inputText value="#{student.year_or_class}" />
+		<!-- input text for the attributes -->
+		<br></br>
+		Special Needs: <h:inputText value="#{student.special_Needs}" />
+		<!-- input text for the attributes -->
+		<br></br>
+		<h:commandButton value="Add"
+			action="#{studentController.addStudent(student)}" />
+		<!-- calls the add course method -->
+		<br></br>
+		<h:commandButton value="students" action="Student.xhtml" />
+
+		<h:commandButton value="Homepage" action="index.xhtml" />
+		<!-- Navigation button -->
+	</h:form>
+</h:body>
 </html>

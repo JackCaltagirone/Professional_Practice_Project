@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://xmlns.jcp.org/jsf/html"
-   xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:metadata>
-      <f:event type="preRenderView"
-         listener="#{gradesController.loadGrade()}" />
-   </f:metadata>
-   <h:head>
-      <title>Grades</title>
-   </h:head>
-   <h:body>
-      <h:outputStylesheet library="css" name="tables.css" />
-      <h:form>
-         <h:dataTable value="#{gradesController.gs}" var="g"
-            styleClass="table" headerClass="table-header"
-            rowClasses="table-odd-row, table-even-row">
-            <!-- For the css -->
-            <h:column>
-               <f:facet name="header">subject</f:facet>
-               <h:outputText value="#{g.subject}" />
-            </h:column>
-            <h:column>
-               <f:facet name="header">grade</f:facet>
-               <h:outputText value="#{g.grade}" />
-            </h:column>
-         </h:dataTable>
-         <h:commandButton value="Add grade" action="AddGrades.xhtml" />
-         <h:commandButton value="Homepage" action="index.xhtml" />
-         <!-- Navagation button -->
-      </h:form>
-   </h:body>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{gradesController.loadGrade()}" />
+</f:metadata>
+
+<h:head>
+	<title>Grades</title>
+</h:head>
+
+<h:body>
+
+	<h:outputStylesheet library="css" name="tables.css" />
+	<h:form>
+		<h:dataTable value="#{GradesController.gs}" var="g"
+			styleClass="table" headerClass="table-header"
+			rowClasses="table-odd-row, table-even-row">
+			<!-- For the css -->
+
+			<h:column>
+				<f:facet name="header">math</f:facet>
+				<h:outputText value="#{g.math}" />
+			</h:column>
+
+		</h:dataTable>
+		<h:commandButton value="Add grade" action="AddGrades.xhtml" />
+
+		<h:commandButton value="Homepage" action="index.xhtml" />
+		<!-- Navagation button -->
+	</h:form>
+</h:body>
 </html>
