@@ -29,7 +29,7 @@ public class DAO {
 	}
 
 	public ArrayList<student> getAllStudents() throws SQLException {
-		System.out.println("In GradesDAO Load Students");
+		System.out.println("In Student DAO Load Students");
 		Connection conn = mysqlDS.getConnection();
 		Statement myStmt = conn.createStatement();
 
@@ -65,7 +65,7 @@ public class DAO {
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement myStat = conn.prepareStatement(
-				"INSERT INTO Grades (sid, name, address, date_of_Birth,year_or_class,Special_Needs) VALUES (?, ?, ?, ?,?,?)");
+				"INSERT INTO student (sid, name, address, date_of_Birth,year_or_class,Special_Needs) VALUES (?, ?, ?, ?,?,?)");
 
 		myStat.setString(1, sid);
 		myStat.setString(2, name);

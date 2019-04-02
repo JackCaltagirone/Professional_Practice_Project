@@ -23,25 +23,32 @@ public class LogInController {
 		dao = new LogInDAO(); // creates the object of the dao
 	}
 
-	public ArrayList<User> getPs() {
+	public void loadUsers() throws SQLException {
+
+		System.out.println("In Load users");
+
+		userList = dao.getAllUsers();
+
+	}
+
+	public ArrayList<User> getUserList() {
 		return userList;
 	}
 
-	public void setPs(ArrayList<User> userList) {
+	public void setUserList(ArrayList<User> userList) {
 		this.userList = userList;
 	}
-	public String validateUser(User u) throws SQLException {
 
-		try {
-			LogInDAO.validate(u); // calls the insert course with "s"
+	public String userLogin(User u) throws SQLException {
+
+		if (dao.validateUser(u) == true) {
+			return "index.xhtml";
+
 		}
-		// try
-		catch (Exception e) {
-			FacesMessage message = new FacesMessage("Error: Did not make it to insert Student");
-			FacesContext.getCurrentInstance().addMessage(null, message);
-		} // catch
 
-		return "Student.xhtml";
+		else
+			return "LogIn.xhtml";
 
-	}// 
+	}//
+
 }

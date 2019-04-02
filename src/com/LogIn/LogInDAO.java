@@ -12,13 +12,16 @@ import javax.faces.bean.SessionScoped;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.Student.student;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 @ManagedBean
 @SessionScoped
 public class LogInDAO {
 
-	public static  DataSource mysqlDS;
+	public static DataSource mysqlDS;
+	String message; 
 
 	public LogInDAO() throws Exception {
 		Context context = new InitialContext();
@@ -26,28 +29,50 @@ public class LogInDAO {
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 
-	public static void validate(User u) throws SQLException {
+	public ArrayList<User> getAllUsers() throws SQLException {
+		System.out.println("In User DAO Load Users");
 		Connection conn = mysqlDS.getConnection();
+		Statement myStmt = conn.createStatement();
 
-			PreparedStatement myStat = conn
-					.prepareStatement("Select username, password from users where username = ? and password = ?");
-			myStat.setString(1, u.getUserName());
-			myStat.setString(1, u.getPassword());
+		String query = "select * from Users";
+		ResultSet rs = myStmt.executeQuery(query);
 
+		ArrayList<User> user = new ArrayList<User>();
 
-			ResultSet rs = myStat.executeQuery();
+		while (rs.next()) {
+			String userName = rs.getString("userName");
+			String password = rs.getString("password");
 
-			if (rs.next()) {
-				// result found, means valid inputs
-			}
-			else 
-			{
-				System.out.println("INVALID INPUT");
-			}
-			myStat.close();
-			conn.close();
+			User u = new User(userName, password);
 
-		
+			user.add(u);
+		}
+
+		return user;
+
+	}
+
+	public boolean validateUser(User u) throws SQLException {
+
+		Connection conn = null;
+		PreparedStatement myStat = null;
+
+		String userName = u.getUserName();
+		String password = u.getPassword();
+		conn = mysqlDS.getConnection();
+		myStat = conn.prepareStatement("Select username, password from users where username = ? and password = ?");
+
+		myStat.setString(1, userName);
+		myStat.setString(2, password);
+
+		ResultSet rs = myStat.executeQuery();
+		if (rs.next()) {
+			// result found, means valid inputs
+			return true;
+		} else {
+			return false; 
+		}
+
 	}
 
 }
