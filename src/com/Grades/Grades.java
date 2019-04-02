@@ -9,34 +9,29 @@ import javax.faces.bean.SessionScoped;
 
 public class Grades {
 
-	//for displaying table
-	private String grade; 
-	private String subject; 
-	
+	// for displaying table
+	private String grade;
+	private String subject;
+
+	private String sid;
 	private int math;
 	private int english;
 	private int irish;
 	private int business;
 	private int science;
 	private int pe;
-	// attributes for Grades
 
-	public Grades(String subject, String grade){
-		super(); 
-		this.subject = subject; 
-		this.grade = grade; 
-		
-	}
-	public Grades(int math, int english, int irish, int business, int science, int pe) {
+	public Grades(String sid, int math, int english, int irish, int business, int science, int pe) {
 		super();
+		this.sid = sid;
 		this.math = math;
 		this.english = english;
 		this.irish = irish;
 		this.business = business;
 		this.science = science;
 		this.pe = pe;
-		System.out.println("math: " + math + "english: " + english + "irish: " + irish + "business: " + business
-				+ "science: " + science + "pe: " + pe);
+		System.out.println("sid: " + sid + " math: " + math + " english: " + english + " irish: " + irish + "  business: "
+				+ business + " science: " + science + " pe: " + pe);
 	} // object contructer with inputs
 
 	public int getMath() {
@@ -86,17 +81,13 @@ public class Grades {
 	public void setPe(int pe) {
 		this.pe = pe;
 	}
-	public String getGrade() {
-		return grade;
+
+	public String getSid() {
+		return sid;
 	}
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
 
 }

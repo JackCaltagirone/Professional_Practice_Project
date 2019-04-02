@@ -17,12 +17,32 @@
             rowClasses="table-odd-row, table-even-row">
             <!-- For the css -->
             <h:column>
-               <f:facet name="header">subject</f:facet>
-               <h:outputText value="#{g.subject}" />
+               <f:facet name="header">sid</f:facet>
+               <h:outputText value="#{g.sid}" />
             </h:column>
             <h:column>
-               <f:facet name="header">grade</f:facet>
-               <h:outputText value="#{g.grade}" />
+               <f:facet name="header">math</f:facet>
+               <h:outputText value="#{g.math}" />
+            </h:column>
+            <h:column>
+               <f:facet name="header">english</f:facet>
+               <h:outputText value="#{g.english}" />
+            </h:column>
+            <h:column>
+               <f:facet name="header">irish</f:facet>
+               <h:outputText value="#{g.irish}" />
+            </h:column>
+            <h:column>
+               <f:facet name="header">business</f:facet>
+               <h:outputText value="#{g.business}" />
+            </h:column>
+            <h:column>
+               <f:facet name="header">pe</f:facet>
+               <h:outputText value="#{g.pe}" />
+            </h:column>
+              <h:column>
+               <f:facet name="header">science</f:facet>
+               <h:outputText value="#{g.science}" />
             </h:column>
          </h:dataTable>
          <h:commandButton value="Add grade" action="AddGrades.xhtml" />

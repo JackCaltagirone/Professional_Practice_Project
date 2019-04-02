@@ -32,26 +32,36 @@ public class GradesDAO {
 		Connection conn = mysqlDS.getConnection();
 		Statement myStmt = conn.createStatement();
 
-		String query = "select * from grades";
+		// this query will only show results where the sid is matching from both
+		// the grades table and the student table
+
+		String query = "SELECT  grades.sid , grades.english ,   "
+				+ "grades.irish ,   grades.math ,   grades.business ,   " + "grades.science ,   grades.pe FROM grades "
+				+ "INNER JOIN student ON grades.sid = student.sid; ";
 		ResultSet rs = myStmt.executeQuery(query);
 
 		ArrayList<Grades> grades = new ArrayList<Grades>();
 
 		while (rs.next()) {
-			String subject = rs.getString("subject");
-			int grade = rs.getInt("grade");
-			String gr = Integer.toString(grade); 
-			Grades g = new Grades(subject, gr);
+			String sid = rs.getString("sid");
+			int math = rs.getInt("math");
+			int english = rs.getInt("english");
+			int irish = rs.getInt("irish");
+			int pe = rs.getInt("pe");
+			int business = rs.getInt("business");
+			int science = rs.getInt("science");
+			Grades g = new Grades(sid, math, english, irish, pe, business, science);
 
 			grades.add(g);
 		}
 
-		return grades; 
+		return grades;
 
 	}
 
 	public void insertGrade(Grades g) throws SQLException {
 
+		String sid = g.getSid();
 		int math = g.getMath();
 		int english = g.getEnglish();
 		int irish = g.getIrish();
@@ -61,14 +71,15 @@ public class GradesDAO {
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement myStat = conn.prepareStatement(
-				"INSERT INTO Grades (math, english, irish, business, science,pe) VALUES (?, ?, ?, ?,?,?)");
+				"INSERT INTO Grades (sid, math, english, irish, business, science,pe) VALUES (?,?, ?, ?, ?,?,?)");
 
-		myStat.setInt(1, math);
-		myStat.setInt(2, english);
-		myStat.setInt(3, irish);
-		myStat.setInt(4, business);
-		myStat.setInt(5, science);
-		myStat.setInt(6, pe);
+		myStat.setString(1, sid);
+		myStat.setInt(2, math);
+		myStat.setInt(3, english);
+		myStat.setInt(5, irish);
+		myStat.setInt(5, business);
+		myStat.setInt(6, science);
+		myStat.setInt(7, pe);
 
 		myStat.executeUpdate();
 
