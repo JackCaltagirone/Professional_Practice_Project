@@ -13,10 +13,13 @@
       <h:outputStylesheet library="css" name="tables.css" />
       <h:form>
          <h:outputText value="Username" />
-         <h:inputText value="#{user.userName}" />
+         <h:inputText id = "un" value="#{user.userName}"  required="true" requiredMessage="Please enter your username"/>
+         <h:message for="un" style="color:red" />
          <br></br>
          <h:outputText value="Password" />
-         <h:inputSecret value="#{user.password}"/>
+         <h:inputSecret id = "pw" value="#{user.password}"  required="true" requiredMessage="Please enter your password"/>
+         <h:message for="pw" style="color:red" />
+         
          <br></br>
          <br></br>
          <h:commandButton value="Login"

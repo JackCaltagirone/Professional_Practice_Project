@@ -42,7 +42,7 @@ public class LogInController {
 	public String userLogin(User u) throws SQLException {
 
 		if (dao.validateUser(u) == true) {
-			return "index.xhtml";
+			return "Student.xhtml";
 
 		}
 
