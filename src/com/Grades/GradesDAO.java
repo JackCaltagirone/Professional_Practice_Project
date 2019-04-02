@@ -13,6 +13,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.Student.student;
+
 @ManagedBean
 @SessionScoped
 public class GradesDAO {
@@ -26,36 +28,25 @@ public class GradesDAO {
 	}
 
 	public ArrayList<Grades> getAllGrades() throws SQLException {
-		System.out.println("In GradesDAO Load grades");
+		System.out.println("In Grade DAO Load grades");
 		Connection conn = mysqlDS.getConnection();
-		Statement myStmt = conn.createStatement();  //the creates the statement to be sent the sql server
+		Statement myStmt = conn.createStatement();
 
-		String query = "select * from grades"; //first query to open up the grades table
-		ResultSet rs = myStmt.executeQuery(query); //rs is the result set. and the query is sent threw it
+		String query = "select * from grades";
+		ResultSet rs = myStmt.executeQuery(query);
 
-		ArrayList<Grades> Grade = new ArrayList<Grades>(); //creates new grade array Grade
+		ArrayList<Grades> grades = new ArrayList<Grades>();
 
-		while (rs.next()) { //there are results
-			
-			System.out.println("before");
-			int math = rs.getInt("math");  //breaking line. "Column math not found"
-			System.out.println("after");
-			
-			
-			int english = rs.getInt("english");
-			int irish = rs.getInt("irish");
-			int business = rs.getInt("business");
-			int science = rs.getInt("science");
-			int pe = rs.getInt("pe");
+		while (rs.next()) {
+			String subject = rs.getString("subject");
+			int grade = rs.getInt("grade");
+			String gr = Integer.toString(grade); 
+			Grades g = new Grades(subject, gr);
 
-			//gets the subjects from the grades constructer 
-			
-			Grades g = new Grades(math, english, irish, business, science, pe);
-
-			Grade.add(g); //adds to the grade array list
+			grades.add(g);
 		}
 
-		return Grade;
+		return grades; 
 
 	}
 
