@@ -13,11 +13,10 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 
 public class User {
+	// attributes for Users
 
 	private String userName;
 	private String password;
-	private String message;
-	// attributes for Grades
 
 	public User() {
 
@@ -46,22 +45,4 @@ public class User {
 		this.password = password;
 	}
 
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	//validate login
-	public String validateUsernamePassword() throws SQLException {
-		return message;
-	
-	}
-
-	//logout event, invalidate session
-	public String logout() {
-		return message; 
-	}
 }

@@ -21,7 +21,6 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 public class LogInDAO {
 
 	public static DataSource mysqlDS;
-	String message; 
 
 	public LogInDAO() throws Exception {
 		Context context = new InitialContext();
@@ -57,6 +56,7 @@ public class LogInDAO {
 		Connection conn = null;
 		PreparedStatement myStat = null;
 
+
 		String userName = u.getUserName();
 		String password = u.getPassword();
 		conn = mysqlDS.getConnection();
@@ -71,6 +71,7 @@ public class LogInDAO {
 			return true;
 		} else {
 			return false; 
+
 		}
 
 	}

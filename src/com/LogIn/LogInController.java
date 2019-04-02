@@ -47,7 +47,7 @@ public class LogInController {
 		}
 
 		else
-			return "LogIn.xhtml";
+			return "LogIn.xhtml"; //reloads the page
 
 	}//
 
