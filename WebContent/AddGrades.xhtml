@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:metadata>
+      <f:event type="preRenderView"
+         listener="#{gradesController.loadGrade}" />
+   </f:metadata>
+   <h:head>
+      <title>grades</title>
+   </h:head>
+   <h:body>
+      <h:outputStylesheet library="css" name="tables.css" />
+      <!-- For the scc -->
+      <h:form>
+         SID
+         <h:inputText id = "sd" value="#{grades.sid}"  required="true" requiredMessage="Please enter a valid student id"/>
+         <h:message for="sd" style="color:red" />
+         <br></br>
+         English Grade: 
+         <Tab>
+            <h:inputText value="#{grades.english}"/>
+         </Tab>
+         <br></br>
+         Iriah Grade: 
+         <h:inputText value="#{grades.irish}" />
+         <br></br>
+         Math Grade: 
+         <h:inputText value="#{grades.math}" />
+         <!-- input text for the attributes -->
+         <br></br>
+         Buisness grade: 
+         <h:inputText value="#{grades.business}" />
+         <!-- input text for the attributes -->
+         <br></br>
+         Science Grade:  
+         <h:inputText value="#{grades.science}" />
+         <!-- input text for the attributes -->
+         <br></br>
+         <br></br>
+         PE Grade:  
+         <h:inputText value="#{grades.pe}" />
+         <!-- input text for the attributes -->
+         <br></br>
+         <h:commandButton value="Add"
+            action="#{gradesController.addGrade(grades)}" />
+         <!-- calls the add course method -->
+         <br></br>
+         <h:commandButton value="students" action="Student.xhtml" />
+         <h:commandButton value="Log Out" action="LogIn.xhtml" />
+         <!-- Navigation button -->
+      </h:form>
+   </h:body>
+</html>

@@ -50,7 +50,7 @@ public class StudentController {
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} // catch
 
-		return "index.xhtml";
+		return "Student.xhtml";
 
 	}// method for calling the methods that adds to database
 

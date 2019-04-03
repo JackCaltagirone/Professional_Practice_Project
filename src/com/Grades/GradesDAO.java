@@ -19,7 +19,7 @@ import com.Student.student;
 @SessionScoped
 public class GradesDAO {
 
-	private DataSource mysqlDS;
+	private static DataSource mysqlDS;
 
 	public GradesDAO() throws Exception {
 		Context context = new InitialContext();
@@ -35,8 +35,8 @@ public class GradesDAO {
 		// this query will only show results where the sid is matching from both
 		// the grades table and the student table
 
-		String query = "SELECT  grades.sid , grades.english ,   "
-				+ "grades.irish ,   grades.math ,   grades.business ,   " + "grades.science ,   grades.pe FROM grades "
+		String query = "SELECT  grades.sid , grades.math ,   "
+				+ "grades.english ,   grades.irish ,   grades.business ,   " + "grades.science ,   grades.pe FROM grades "
 				+ "INNER JOIN student ON grades.sid = student.sid; ";
 		ResultSet rs = myStmt.executeQuery(query);
 
@@ -59,27 +59,35 @@ public class GradesDAO {
 
 	}
 
-	public void insertGrade(Grades g) throws SQLException {
+	public static void insertGrade(Grades g) throws SQLException {
 
 		String sid = g.getSid();
 		int math = g.getMath();
+		String math1 = Integer.toString(math); 
 		int english = g.getEnglish();
+		String english1 = Integer.toString(english); 
 		int irish = g.getIrish();
+		String irish1 = Integer.toString(irish); 
 		int business = g.getBusiness();
+		String business1 = Integer.toString(business); 
 		int science = g.getScience();
+		String science1 = Integer.toString(science); 
 		int pe = g.getPe();
+		String pe1 = Integer.toString(pe); 
 
+		/*int grade = rs.getInt("grade");
+		String gr = Integer.toString(grade); */
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement myStat = conn.prepareStatement(
-				"INSERT INTO Grades (sid, math, english, irish, business, science,pe) VALUES (?,?, ?, ?, ?,?,?)");
-
+				"INSERT INTO `grades` (`sid`, `english`, `irish`, `math`, `business`, `science`, `pe`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+		//System.out.println("INSERT INTO Grades (sid, math, english, irish, business, science,pe) VALUES (?,?, ?, ?, ?,?,?)");
 		myStat.setString(1, sid);
-		myStat.setInt(2, math);
-		myStat.setInt(3, english);
-		myStat.setInt(5, irish);
-		myStat.setInt(5, business);
-		myStat.setInt(6, science);
-		myStat.setInt(7, pe);
+		myStat.setString(2, english1);
+		myStat.setString(3, irish1);
+		myStat.setString(4, math1);
+		myStat.setString(5, business1);
+		myStat.setString(6, science1);
+		myStat.setString(7, pe1);
 
 		myStat.executeUpdate();
 

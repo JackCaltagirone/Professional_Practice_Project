@@ -14,25 +14,63 @@ public class Grades {
 	private String subject;
 
 	private String sid;
-	private int math;
 	private int english;
 	private int irish;
+	private int math;
 	private int business;
 	private int science;
 	private int pe;
+	
+	private String english1;
+	private String irish1;
+	private String math1;
+	private String business1;
+	private String science1;
+	private String pe1;
+	
 
-	public Grades(String sid, int math, int english, int irish, int business, int science, int pe) {
+	// empty constructor
+	public Grades() {
+
+	}
+	
+
+	public Grades(String sid, int english, int irish, int math, int business, int science, int pe) {
 		super();
+
 		this.sid = sid;
-		this.math = math;
 		this.english = english;
 		this.irish = irish;
+		this.math = math;
 		this.business = business;
 		this.science = science;
 		this.pe = pe;
-		System.out.println("sid: " + sid + " math: " + math + " english: " + english + " irish: " + irish + "  business: "
-				+ business + " science: " + science + " pe: " + pe);
-	} // object contructer with inputs
+		System.out.println("sid: " + sid + " math: " + math + " english: " + english + " irish: " + irish
+				+ "  business: " + business + " science: " + science + " pe: " + pe);
+	}
+
+	//Grades with STRINGS
+
+	public Grades(String sid, String english1, String irish1, String math1, String business1, String science1,
+			String pe1) {
+		super();
+		this.sid = sid;
+		this.english1 = english1;
+		this.irish1 = irish1;
+		this.math1 = math1;
+		this.business1 = business1;
+		this.science1 = science1;
+		this.pe1 = pe1;
+	}
+	/*
+	 * public Grades(String sid, int math, int english, int irish, int business,
+	 * int science, int pe) { super(); this.sid = sid; this.math = math;
+	 * this.english = english; this.irish = irish; this.business = business;
+	 * this.science = science; this.pe = pe; System.out.println("sid: " + sid +
+	 * " math: " + math + " english: " + english + " irish: " + irish +
+	 * "  business: " + business + " science: " + science + " pe: " + pe); } //
+	 * object contructer with inputs
+	 */
 
 	public int getMath() {
 		return math;

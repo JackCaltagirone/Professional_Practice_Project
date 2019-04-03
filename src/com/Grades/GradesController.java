@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import com.Student.student;
+
 @ManagedBean
 @SessionScoped
 
@@ -37,10 +39,10 @@ public class GradesController {
 		this.gs = gs;
 	}//array setter and and getter
 
-	public String addGrade(Grades s) throws SQLException {
+	/*public String addGrade(Grades g) throws SQLException {
 
 		try {
-			gradesDAO.insertGrade(s); // calls the insert course with "s"
+			gradesDAO.insertGrade(g); // calls the insert G with "s"
 		}
 		// try
 		catch (Exception e) {
@@ -48,7 +50,22 @@ public class GradesController {
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} // catch
 
-		return "index.xhtml";
+		return "Grades.xhtml";
+
+	}// method for calling the methods that adds to database*/
+	public String addGrade(Grades g) throws SQLException {
+
+		try {
+			GradesDAO.insertGrade(g); // calls the insert course with "s"
+		}
+		// try
+		catch (Exception e) {
+			//FacesMessage message = new FacesMessage("Error: Did not make it to insert Student");
+		//	FacesContext.getCurrentInstance().addMessage(null, message);
+			e.printStackTrace();
+		} // catch
+
+		return "Grades.xhtml";
 
 	}// method for calling the methods that adds to database
 
