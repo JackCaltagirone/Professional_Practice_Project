@@ -49,28 +49,6 @@ public class Grades {
 				+ "  business: " + business + " science: " + science + " pe: " + pe);
 	}
 
-	//Grades with STRINGS
-
-	public Grades(String sid, String english1, String irish1, String math1, String business1, String science1,
-			String pe1) {
-		super();
-		this.sid = sid;
-		this.english1 = english1;
-		this.irish1 = irish1;
-		this.math1 = math1;
-		this.business1 = business1;
-		this.science1 = science1;
-		this.pe1 = pe1;
-	}
-	/*
-	 * public Grades(String sid, int math, int english, int irish, int business,
-	 * int science, int pe) { super(); this.sid = sid; this.math = math;
-	 * this.english = english; this.irish = irish; this.business = business;
-	 * this.science = science; this.pe = pe; System.out.println("sid: " + sid +
-	 * " math: " + math + " english: " + english + " irish: " + irish +
-	 * "  business: " + business + " science: " + science + " pe: " + pe); } //
-	 * object contructer with inputs
-	 */
 
 	public int getMath() {
 		return math;

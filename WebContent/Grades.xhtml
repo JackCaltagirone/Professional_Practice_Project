@@ -44,6 +44,11 @@
                <f:facet name="header">pe</f:facet>
                <h:outputText value="#{g.pe}" />
             </h:column>
+            <h:column>
+				<h:commandButton value="Delete"
+					action="#{gradesController.deleteGrade(g)}" />
+				<!-- Calls delete function -->
+			</h:column>
          </h:dataTable>
          <h:commandButton value="Add grade" action="AddGrades.xhtml" />
          <h:commandButton value="Homepage" action="index.xhtml" />

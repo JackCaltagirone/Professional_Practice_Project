@@ -39,35 +39,31 @@ public class GradesController {
 		this.gs = gs;
 	}//array setter and and getter
 
-	/*public String addGrade(Grades g) throws SQLException {
 
-		try {
-			gradesDAO.insertGrade(g); // calls the insert G with "s"
-		}
-		// try
-		catch (Exception e) {
-			FacesMessage message = new FacesMessage("Error: Did not make it to insert grade");
-			FacesContext.getCurrentInstance().addMessage(null, message);
-		} // catch
-
-		return "Grades.xhtml";
-
-	}// method for calling the methods that adds to database*/
 	public String addGrade(Grades g) throws SQLException {
 
 		try {
-			GradesDAO.insertGrade(g); // calls the insert course with "s"
+			GradesDAO.insertGrade(g); // calls the insert course with "g"
 		}
 		// try
 		catch (Exception e) {
-			//FacesMessage message = new FacesMessage("Error: Did not make it to insert Student");
-		//	FacesContext.getCurrentInstance().addMessage(null, message);
+			FacesMessage message = new FacesMessage("Error: Did not make it to insert Student");
+			FacesContext.getCurrentInstance().addMessage(null, message);
 			e.printStackTrace();
 		} // catch
 
 		return "Grades.xhtml";
 
 	}// method for calling the methods that adds to database
+	
+	public String deleteGrade(Grades g) {
+		try {
+			GradesDAO.deleteGrade(g); // calls delete course with the parameter s
+		} catch (Exception e) {
+			e.printStackTrace();
+		} // method for calling the methods that adds to database
+		return "Grades.xhtml";
+	}
 
 
 }
