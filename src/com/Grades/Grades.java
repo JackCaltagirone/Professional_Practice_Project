@@ -9,10 +9,6 @@ import javax.faces.bean.SessionScoped;
 
 public class Grades {
 
-	// for displaying table
-	private String grade;
-	private String subject;
-
 	private String sid;
 	private int english;
 	private int irish;
@@ -20,20 +16,18 @@ public class Grades {
 	private int business;
 	private int science;
 	private int pe;
-	
-	private String english1;
-	private String irish1;
-	private String math1;
-	private String business1;
-	private String science1;
-	private String pe1;
-	
+	private int score; 
 
 	// empty constructor
 	public Grades() {
 
 	}
-	
+
+	// Constructor for Updating grades
+	public Grades(String sid, int score) {
+		this.sid = sid;
+		this.score = score;
+	}
 
 	public Grades(String sid, int english, int irish, int math, int business, int science, int pe) {
 		super();
@@ -48,7 +42,6 @@ public class Grades {
 		System.out.println("sid: " + sid + " math: " + math + " english: " + english + " irish: " + irish
 				+ "  business: " + business + " science: " + science + " pe: " + pe);
 	}
-
 
 	public int getMath() {
 		return math;

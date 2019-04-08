@@ -35,22 +35,21 @@ public class GradesDAO {
 		// this query will only show results where the sid is matching from both
 		// the grades table and the student table
 
-		String query = "SELECT  grades.sid , grades.math ,   "
-				+ "grades.english ,   grades.irish ,   grades.business ,   "
-				+ "grades.science ,   grades.pe FROM grades " + "INNER JOIN student ON grades.sid = student.sid; ";
+		String query = "SELECT  grades.sid , grades.english, grades.irish, grades.math , grades.business ,   "
+				+ "grades.science ,   grades.pe FROM grades  INNER JOIN student ON grades.sid = student.sid; ";
 		ResultSet rs = myStmt.executeQuery(query);
 
 		ArrayList<Grades> grades = new ArrayList<Grades>();
 
 		while (rs.next()) {
 			String sid = rs.getString("sid");
-			int math = rs.getInt("math");
 			int english = rs.getInt("english");
 			int irish = rs.getInt("irish");
-			int pe = rs.getInt("pe");
+			int math = rs.getInt("math");
 			int business = rs.getInt("business");
 			int science = rs.getInt("science");
-			Grades g = new Grades(sid, math, english, irish, pe, business, science);
+			int pe = rs.getInt("pe");
+			Grades g = new Grades(sid, english, irish, math, business, science, pe);
 
 			grades.add(g);
 		}
@@ -90,7 +89,7 @@ public class GradesDAO {
 		try {
 			Connection conn;
 			PreparedStatement myStat;
-			
+
 			conn = mysqlDS.getConnection();
 
 			myStat = conn.prepareStatement("delete from Grades where sid = ?");
@@ -106,6 +105,21 @@ public class GradesDAO {
 		}
 
 	}
-	
-	
+
+	public static void addMathGrade(Grades g) throws SQLException {
+		String sid = g.getSid();
+		int score = g.getMath();
+		Connection conn = mysqlDS.getConnection();
+
+		PreparedStatement myStat = conn.prepareStatement("Update grades set Math = ? where sid = ?");
+
+		myStat.setInt(1, score);
+		myStat.setString(2, sid);
+		myStat.executeUpdate();
+
+		myStat.close();
+		conn.close();
+
+	}
+
 }
