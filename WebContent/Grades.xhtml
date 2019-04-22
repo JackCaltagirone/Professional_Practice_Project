@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://xmlns.jcp.org/jsf/html"
-   xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:metadata>
-      <f:event type="preRenderView"
-         listener="#{gradesController.loadGrade()}" />
-   </f:metadata>
-   <h:head>
-      <title>Grades</title>
-   </h:head>
-   <h:body>
-      <h:outputStylesheet library="css" name="tables.css" />
-      <h:form>
-         <h:dataTable value="#{gradesController.gs}" var="g"
-            styleClass="table" headerClass="table-header"
-            rowClasses="table-odd-row, table-even-row">
-            <!-- For the css -->
-            <h:column>
-               <f:facet name="header">sid</f:facet>
-               <h:outputText value="#{g.sid}" />
-            </h:column>
-            <h:column>
-               <f:facet name="header">English</f:facet>
-               <h:outputText value="#{g.english}" />
-            </h:column>
-            <h:column>
-               <f:facet name="header">Irish</f:facet>
-               <h:outputText value="#{g.irish}" />
-            </h:column>
-            <h:column>
-               <f:facet name="header">Math</f:facet>
-               <h:outputText value="#{g.math}" />
-            </h:column>
-            <h:column>
-               <f:facet name="header">Business</f:facet>
-               <h:outputText value="#{g.business}" />
-            </h:column>
-            <h:column>
-               <f:facet name="header">Science</f:facet>
-               <h:outputText value="#{g.science}" />
-            </h:column>
-              <h:column>
-               <f:facet name="header">PE</f:facet>
-               <h:outputText value="#{g.pe}" />
-            </h:column>
-            <h:column>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{gradesController.loadGrade()}" />
+</f:metadata>
+<h:head>
+	<title>Grades</title>
+</h:head>
+<h:body>
+	<h:outputStylesheet library="css" name="tables.css" />
+	<h:form>
+		<h:dataTable value="#{gradesController.gs}" var="g" styleClass="table"
+			headerClass="table-header" rowClasses="table-odd-row, table-even-row">
+			<!-- For the css -->
+			<h:column>
+				<f:facet name="header">sid</f:facet>
+				<h:outputText value="#{g.sid}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">English</f:facet>
+				<h:outputText value="#{g.english}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Irish</f:facet>
+				<h:outputText value="#{g.irish}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Math</f:facet>
+				<h:outputText value="#{g.math}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Business</f:facet>
+				<h:outputText value="#{g.business}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Science</f:facet>
+				<h:outputText value="#{g.science}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">PE</f:facet>
+				<h:outputText value="#{g.pe}" />
+			</h:column>
+			<h:column>
 				<h:commandButton value="Delete"
 					action="#{gradesController.deleteGrade(g)}" />
 				<!-- Calls delete function -->
 			</h:column>
-         </h:dataTable>
-         <h:commandButton value="Add grade" action="AddGrades.xhtml" />
-         <h:commandButton value="Homepage" action="Student.xhtml.xhtml" />
-         <!-- Navagation button -->
-      </h:form>
-   </h:body>
+		</h:dataTable>
+		<h:commandButton value="Add grade" action="AddGrades.xhtml" />
+		<h:commandButton value="Homepage" action="Student.xhtml" />
+		<!-- Navagation button -->
+	</h:form>
+</h:body>
 </html>

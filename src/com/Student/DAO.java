@@ -84,7 +84,6 @@ public class DAO {
 		try {
 			Connection conn;
 			PreparedStatement myStat;
-			ResultSet rs;
 
 			conn = mysqlDS.getConnection();
 

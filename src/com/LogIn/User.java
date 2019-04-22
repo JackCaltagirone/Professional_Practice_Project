@@ -20,14 +20,16 @@ public class User {
 
 	public User() {
 
-	}// empty constructer
+	}// empty constructor
 
 	public User(String userName, String password) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		System.out.println();
-	} // object contructer with inputs
+	} // object constructor with inputs
+	
+	//setters and getters
 
 	public String getUserName() {
 		return userName;

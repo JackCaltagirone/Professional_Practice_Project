@@ -29,7 +29,7 @@ public class student {
 		this.Address = address;
 		this.year_or_class = yearOrClass;
 		this.Special_Needs = SN;
-		System.out.println("ProdID: " + sid + "Desc: " + dob + "Name: " + name + "Address: " + address + "Year: " + yearOrClass + "Special Needs: " + SN);
+		System.out.println("Student ID: " + sid + "   Date of Birth: " + dob + "   Name: " + name + "   Address: " + address + "   Year: " + yearOrClass + "   Special Needs: " + SN);
 	} // object contructer with inputs
 	
 
