@@ -78,6 +78,8 @@ public class DAO {
 
 		myStat.close();
 		conn.close();
+		
+		
 	}
 
 	public void deleteStudent(student s) throws SQLException {
