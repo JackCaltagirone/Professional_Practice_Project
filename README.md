@@ -1,6 +1,6 @@
 # Professional Practice in It Project
 ## A student DataBase Interface for schools
-###### Jack Caltagirone - G00349976  ,  Laura Flaherty - 
+###### Jack Caltagirone - G00349976  ,  Laura Flaherty - G00348586
 
 ###### Intro:
   We first came up with the project idea after my, jacks, uncle told me about the problem they were having at their school where they were trying to get a databases UI that teachers could log on it and change student details. 
