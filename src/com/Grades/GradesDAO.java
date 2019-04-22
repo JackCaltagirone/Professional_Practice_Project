@@ -35,12 +35,18 @@ public class GradesDAO {
 		// this query will only show results where the sid is matching from both
 		// the grades table and the student table
 
+		// query is the query that the program will enter into the sql database. the
+		// string is a legal sql entry that selects the grades table and creates a join
 		String query = "SELECT  grades.sid , grades.english, grades.irish, grades.math , grades.business ,   "
 				+ "grades.science ,   grades.pe FROM grades  INNER JOIN student ON grades.sid = student.sid; ";
 		ResultSet rs = myStmt.executeQuery(query);
 
 		ArrayList<Grades> grades = new ArrayList<Grades>();
 
+		// while the result set (rs) has items to keep seraching, this will run.
+		// note that they are in order of the query with side first then english etc.
+		// this while assigns the "grades.sid" to the get sid method from the grades
+		// constructer
 		while (rs.next()) {
 			String sid = rs.getString("sid");
 			int english = rs.getInt("english");
@@ -58,8 +64,10 @@ public class GradesDAO {
 
 	}
 
+	// method that is called when for inserting grades
 	public static void insertGrade(Grades g) throws SQLException {
 
+		// first the method will get each of the subject variables from the getters
 		String sid = g.getSid();
 		int math = g.getMath();
 		int english = g.getEnglish();
@@ -68,9 +76,13 @@ public class GradesDAO {
 		int science = g.getScience();
 		int pe = g.getPe();
 
+		// next will prepare a statement to be inserted into sql database
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement myStat = conn.prepareStatement(
+		PreparedStatement myStat = conn.prepareStatement(// the "?" mark when the user entered variables will be set.
+															// with sid being first then english etc.
 				"INSERT INTO `grades` (`sid`, `english`, `irish`, `math`, `business`, `science`, `pe`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+		// correspond to the ? above
 		myStat.setString(1, sid);
 		myStat.setInt(2, english);
 		myStat.setInt(3, irish);
@@ -85,6 +97,7 @@ public class GradesDAO {
 		conn.close();
 	}
 
+	// delete grades
 	public static void deleteGrade(Grades g) throws SQLException {
 		try {
 			Connection conn;
@@ -92,7 +105,9 @@ public class GradesDAO {
 
 			conn = mysqlDS.getConnection();
 
+			// prepares statment that tells the server to delete the row where "sids = ?"
 			myStat = conn.prepareStatement("delete from Grades where sid = ?");
+			// user will then enter sid.
 			myStat.setString(1, g.getSid());
 
 			myStat.executeUpdate();
@@ -102,23 +117,8 @@ public class GradesDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// if it fails we have the catch
 		}
-
-	}
-
-	public static void addMathGrade(Grades g) throws SQLException {
-		String sid = g.getSid();
-		int score = g.getMath();
-		Connection conn = mysqlDS.getConnection();
-
-		PreparedStatement myStat = conn.prepareStatement("Update grades set Math = ? where sid = ?");
-
-		myStat.setInt(1, score);
-		myStat.setString(2, sid);
-		myStat.executeUpdate();
-
-		myStat.close();
-		conn.close();
 
 	}
 

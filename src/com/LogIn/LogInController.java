@@ -24,7 +24,7 @@ public class LogInController {
 	}
 
 	public void loadUsers() throws SQLException {
-
+		//is called to get load the users
 		System.out.println("In Load users");
 
 		userList = dao.getAllUsers();
@@ -40,6 +40,8 @@ public class LogInController {
 	}
 
 	public String userLogin(User u) throws SQLException {
+		
+		//verifies log in. if the validation is true, they can continue to the Student page, if not they stay on the log in
 
 		if (dao.validateUser(u) == true) {
 			return "Student.xhtml";

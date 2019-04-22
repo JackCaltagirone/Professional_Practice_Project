@@ -33,12 +33,13 @@ public class LogInDAO {
 		Connection conn = mysqlDS.getConnection();
 		Statement myStmt = conn.createStatement();
 
+		//creates query to select from users
 		String query = "select * from Users";
 		ResultSet rs = myStmt.executeQuery(query);
 
 		ArrayList<User> user = new ArrayList<User>();
 
-		while (rs.next()) {
+		while (rs.next()) {//runs while there is items to search through. searchs with the variables below
 			String userName = rs.getString("userName");
 			String password = rs.getString("password");
 

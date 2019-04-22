@@ -29,6 +29,7 @@ public class Grades {
 		this.score = score;
 	}
 
+	//full constructor
 	public Grades(String sid, int english, int irish, int math, int business, int science, int pe) {
 		super();
 
@@ -42,6 +43,9 @@ public class Grades {
 		System.out.println("sid: " + sid + " math: " + math + " english: " + english + " irish: " + irish
 				+ "  business: " + business + " science: " + science + " pe: " + pe);
 	}
+	
+	
+	//setters ands getters
 
 	public int getMath() {
 		return math;

@@ -64,14 +64,6 @@ public class GradesController {
 		} // method for calling the methods that adds to database
 		return "Grades.xhtml";
 	}
-	public String updateMathGrade(Grades g) {
-		try {
-			GradesDAO.addMathGrade(g); // calls delete course with the parameter s
-		} catch (Exception e) {
-			e.printStackTrace();
-		} // method for calling the methods that adds to database
-		return "Grades.xhtml";
-	}
 
 
 }
